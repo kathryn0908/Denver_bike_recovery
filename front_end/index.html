@@ -5,23 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="index.js" defer></script>
     <link rel="stylesheet" href='./app.css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Bike Finder</title>
 </head>
 <body>
-    <h1>Find Your Bike!</h1>
+      
+    <img src="https://user-images.githubusercontent.com/33750251/64987392-f9eead80-d8c0-11e9-84a9-e2a4a7f624db.png">
+    <h1><strong>Recover Your Bike!</strong></h1>
+    <p>Recover Your Bike! is a community-based web application to reconnect stolen bikes and their owners in the 
+        Denver Metro area. Users may browse through list of currently-reported stolen bikes as well as submit the 
+        information on a bike they have had stolen. Working together, we as a community can reunite bikes and owners and 
+        thwart the no-good human beings that interfere with this most important relationship!</p>
 
-    <form method="POST" action="http://localhost:3001/bikes">
-        <label for="Lost Bike">Enter your lost bike information here</label>
-        <input type="text" name="title" id="Lost Bike">
-        <label for="description">Description</label>
-        <input type="text" name="description" id="description">
-        <label for="img">Select image:</label>
-        <input type="file" id="img" name="image" accept="image/*">
-        <label for="Zip Code">Zip Code</label>
-        <input type="text" name="zipcode_id" id="Zip Code">
-        <input type="submit"/>
+    <form method="POST" action="http://localhost:3000/bikes">
+        <div class="form-group">
+            <label for="Lost Bike">Enter your lost bike information here</label>
+            <input type="text" class="form-control" name="title" id="Lost Bike">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" name="description" id="description">
+        </div>
+        <div class="form-group">
+            <label for="img">Image URL:</label>
+            <input type="text" class="form-control" id="img" name="image">
+        </div>
+        <div class="form-group">
+            <label for="zip-code">Zip Code</label>
+            <select name="zipcode_id" class="form-control" id="zip-code">
+            </select>
+        </div>
+        <input type="submit" class="submit-button"/>
         
     </form>
-    
+    <!-- <input type="text" id="searchField" onkeyup="search()" placeholder="Search"> -->
+    <main class="bike-container">
+
+    </main>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<footer>
+    <p>Page created and maintained by: Recover Your Bike!</p>
+    <p>Contact information: 303-555-5555 email: admin@recoveryourbike.org.</p>
+  </footer>
+
 </body>
 </html>
+
+
+
+
+
+
+
+

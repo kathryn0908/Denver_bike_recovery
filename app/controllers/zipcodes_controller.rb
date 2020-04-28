@@ -8,7 +8,7 @@ class ZipcodesController < ApplicationController
         @zipcode = Zipcode.find(params[:id])
         if @zipcode
            render json: @zipcode
-        else
+        elser
             render json: {message:"We couldn't find a zipcode with that id"}
         end
     end

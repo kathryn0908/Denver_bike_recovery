@@ -1,7 +1,7 @@
  class BikesController < ApplicationController
     def index
         @bikes = Bike.all 
-        render json: @bikes
+        render json: @bikes, include: [:zipcode]
 
     end
 
@@ -22,7 +22,7 @@
             zipcode_id: params[:zipcode_id]
         )
         if @bike.save
-            render json: @bike
+            redirect_to 'http://localhost:3001/'
         else 
             render status: 422
         end
