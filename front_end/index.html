@@ -9,8 +9,17 @@
 </head>
 <body>
     <h1>Find Your Bike!</h1>
-    <form method="CREATE" action:"http://localhost:3001/bikes">
 
+    <form method="POST" action="http://localhost:3001/bikes">
+        <label for="Lost Bike">Enter your lost bike information here</label>
+        <input type="text" name="title" id="Lost Bike">
+        <label for="description">Description</label>
+        <input type="text" name="description" id="description">
+        <label for="img">Select image:</label>
+        <input type="file" id="img" name="image" accept="image/*">
+        <label for="Zip Code">Zip Code</label>
+        <input type="text" name="zipcode_id" id="Zip Code">
+        <input type="submit"/>
         
     </form>
     

@@ -1,5 +1,5 @@
 require 'rest-client'
-require 'pry'
+# require 'pry'
 require 'json'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
@@ -8,6 +8,9 @@ require 'json'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Bike.destroy_all
+Zipcode.destroy_all
 
 def get_zipcodes
     response = RestClient.get("https://bikewise.org/api/v2/incidents?per_page=50&occurred_after=2018&incident_type=theft&proximity=Denver%2C%20CO&proximity_square=50")
@@ -30,7 +33,6 @@ def get_zipcodes
     end.uniq
 
     zips.each do |zip|
-        binding.pry
         Zipcode.create(zipcode: zip[:zipcode].to_i, city: zip[:city])
     end
 
@@ -49,7 +51,17 @@ def get_bikes
             address: bike["address"]
         }
     end
-    # binding.pry
+
+    new_bike_data.map do |bike|
+        if bike[:address].split(", ")[2]
+            zipcode = Zipcode.find_by(zipcode: bike[:address].split(", ")[2])
+        end
+
+        if zipcode
+            Bike.create(title: bike[:title], description: bike[:description], image: bike[:image], zipcode_id: zipcode[:id])
+        end
+
+    end
 end
 
 get_zipcodes

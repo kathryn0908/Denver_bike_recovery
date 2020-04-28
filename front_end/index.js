@@ -17,7 +17,3 @@ function displayBikeData(bikes){
     })
 }
 
-function addNewLostBike(bike){
-
-    
-}
